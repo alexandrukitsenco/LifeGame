@@ -26,11 +26,17 @@ export default defineConfig({
         start_url: '/',
         orientation: 'portrait-primary',
         icons: [
+          {
+            src: '/icon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          },
           { 
             src: '/icon-1024x1024.png',
             sizes: '1024x1024',
             type: 'image/png'
           }
+
         ]
       }
     })
