@@ -5,7 +5,7 @@ import HeaderMenu from '@/components/HeaderMenu.vue';
 
 <template >
   <HeaderMenu class="sticky top-0 z-10" />
-  <div class="flex flex-col h-screen max-w-md mx-auto">
+  <div class="flex flex-col mt-10 max-w-md mx-auto">
     
     <RouterView />
   </div>
