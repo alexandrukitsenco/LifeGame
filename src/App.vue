@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
+import HeaderMenu from '@/components/HeaderMenu.vue';
 </script>
 
 <template >
-  <RouterView />
+  <HeaderMenu class="sticky top-0 z-10" />
+  <div class="flex flex-col h-screen max-w-md mx-auto">
+    
+    <RouterView />
+  </div>
+  
 </template>
 
