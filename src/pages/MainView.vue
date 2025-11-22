@@ -5,10 +5,12 @@ import { computed } from 'vue';
 import AddTask from '@/components/AddTask.vue';
 
 const objective = useStorage<number>('objective', null)
-const efford = useStorage<number>('efford', 0)
-
+const tasks = useStorage<any[]>('tasks', [])
+const totalEffort = computed(() => {
+  return tasks.value.reduce((acc, task) => acc + task.effort, 0)
+})
 const progress = computed(() => {
-  return (efford.value / objective.value) * 100
+  return ((totalEffort.value?? 0) / (objective.value?? 0)) * 100
 })
 </script>
 
