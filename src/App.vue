@@ -1,9 +1,8 @@
-<script setup>
-import Button from 'primevue/button';
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
 </script>
 
-<template>
-  <h1 class="text-3xl text-red-500 font-bold underline">Hola Mundo</h1>
-  <Button label="Click" />
+<template >
+  <RouterView />
 </template>
 
