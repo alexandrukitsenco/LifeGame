@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useStorage } from '@vueuse/core';
-import Chip from 'primevue/chip';
+import Chip from 'primevue/chip';   
+import Divider from 'primevue/divider';
 
 const tasks = useStorage<any[]>('tasks', [])
 
@@ -32,6 +33,7 @@ const addTask = (task: any) => {
 
 <template>
     <div v-if="suggestedTasks.length > 0">
+        <Divider />
         <h3 class="text-lg font-bold">Tareas sugeridas</h3>
         <ul class="flex flex-wrap gap-2">
             <li v-for="task in suggestedTasks" :key="task.name">

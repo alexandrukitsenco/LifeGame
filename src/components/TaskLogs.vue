@@ -2,6 +2,7 @@
 import { useStorage, useDateFormat } from '@vueuse/core';
 import { computed } from 'vue';
 import Button from 'primevue/button';
+import Divider from 'primevue/divider';
 import VirtualScroller from 'primevue/virtualscroller';
 const taskLogs = useStorage<any[]>('tasks', [])
 const taskLogsSorted = computed(() => {
@@ -15,6 +16,7 @@ const deleteTaskLog = (createdAt: Date) => {
 
 <template>
     <div v-if="taskLogs.length > 0">
+        <Divider />
         <h3 class="text-lg font-bold">Tareas realizadas</h3>
             <VirtualScroller :items="taskLogsSorted" :itemSize="50" style="height: 600px;" >
                 <template #item="{ item }">

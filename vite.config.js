@@ -24,9 +24,10 @@ export default defineConfig({
         display: 'standalone',
         scope: '/',
         start_url: '/',
+        orientation: 'portrait-primary',
         icons: [
           {
-            src: '/icon.png',
+            src: '/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
           }
