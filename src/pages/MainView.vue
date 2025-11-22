@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useStorage } from '@vueuse/core';
 import ProgressBar from 'primevue/progressbar';
+import Divider from 'primevue/divider';
 import { computed } from 'vue';
 import AddTask from '@/components/AddTask.vue';
 import SuggestedTasks from '@/components/SuggestedTasks.vue';
-
+import TaskLogs from '@/components/TaskLogs.vue';
 const objective = useStorage<number>('objective', null)
 const tasks = useStorage<any[]>('tasks', [])
 const totalEffort = computed(() => {
@@ -21,7 +22,10 @@ const progress = computed(() => {
   <div v-if="objective">
     <h4>Objetivo de sprint: {{ objective }}</h4>
     <ProgressBar :value="progress" :showValue="false" />
+    <Divider />
     <SuggestedTasks />
+    <Divider />
+    <TaskLogs />
     <AddTask />
   </div>
   <div v-else>

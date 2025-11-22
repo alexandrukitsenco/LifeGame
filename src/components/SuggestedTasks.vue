@@ -6,12 +6,14 @@ import Chip from 'primevue/chip';
 const tasks = useStorage<any[]>('tasks', [])
 
 const suggestedTasks = computed(() => {
-    const frequencies = tasks.value.reduce((acc, task) => {
+    const localTasks = [...tasks.value]
+
+    const frequencies = localTasks.reduce((acc, task) => {
         acc[task.name] = (acc[task.name] || 0) + 1;
         return acc;
     }, {});
     const uniqueTasks = Object.values(
-        tasks.value.reduce((acc, task) => {
+        localTasks.reduce((acc, task) => {
             if (!acc[task.name]) acc[task.name] = task;
             return acc;
         }, {})
@@ -24,12 +26,12 @@ const suggestedTasks = computed(() => {
 })
 
 const addTask = (task: any) => {
-    tasks.value.push(task)
+    tasks.value.push({...task, createdAt: new Date()})
 }
 </script>
 
 <template>
-    <div>
+    <div v-if="suggestedTasks.length > 0">
         <h3 class="text-lg font-bold">Tareas sugeridas</h3>
         <ul class="flex flex-wrap gap-2">
             <li v-for="task in suggestedTasks" :key="task.name">
