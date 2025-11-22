@@ -16,6 +16,15 @@ export default defineConfig({
       registerType: 'autoUpdate',
       devOptions: {
         enabled: true
+      },
+      manifest: {
+        name: 'Life Game',
+        short_name: 'Life Game',
+        description: 'Life Game',
+        theme_color: '#000000',
+        background_color: '#000000',
+        display: 'standalone',
+        scope: '/',
       }
     }),
   ],
