@@ -11,9 +11,9 @@ const addTask = (task: any) => {
 </script>
 
 <template>
-    <div v-if="sprintStore.suggestedTasks.length > 0">
+    <section v-if="sprintStore.suggestedTasks.length > 0">
         <Divider />
-        <h3 class="text-lg font-bold">Tareas sugeridas</h3>
+        <h2 class="text-lg font-bold">Tareas sugeridas</h2>
         <ul class="flex flex-wrap gap-2">
             <li v-for="task in sprintStore.suggestedTasks" :key="task.name">
                 <Chip class="cursor-pointer" @click="addTask(task)">
@@ -22,5 +22,5 @@ const addTask = (task: any) => {
                 </Chip>
             </li>
         </ul>
-    </div>
+    </section>
 </template>

@@ -8,12 +8,11 @@ const sprintStore = useSprintStore()
 </script>
 
 <template>
-  <div class="flex mt-10 gap-2">
+  <section class="flex mt-10 gap-2">
     <FloatLabel variant="in" class="flex-1">
-        <InputNumber v-model="sprintStore.objective" :min="1" fluid/>
-        <label for="value">Objetivo de Sprint</label>
+        <InputNumber id="sprint-objective" v-model="sprintStore.objective" :min="1" fluid/>
+        <label for="sprint-objective">Objetivo de Sprint</label>
     </FloatLabel>
-    <Button rounded icon="pi pi-trash" severity="danger" @click="sprintStore.deleteSprint" />
-
-  </div>
+    <Button rounded icon="pi pi-trash" severity="danger" @click="sprintStore.deleteSprint" aria-label="Eliminar sprint" />
+  </section>
 </template>

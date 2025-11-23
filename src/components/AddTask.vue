@@ -71,22 +71,24 @@ const resetForm = () => {
 </script>
 
 <template>
-    <div class="absolute bottom-8 right-8">
-        <Button icon="pi pi-plus" rounded severity="primary" @click="show = true" />
+    <aside class="absolute bottom-8 right-8">
+        <Button icon="pi pi-plus" rounded severity="primary" @click="show = true" aria-label="Añadir nueva tarea" />
         <Drawer v-model:visible="show" style="height: auto" position="bottom" @hide="resetForm">
             <form class="flex flex-col gap-4" @submit.prevent="addTask">
                 <FloatLabel variant="in" class="w-full">
-                    <AutoComplete v-model="taskName" :overlayClass="showOverlay ? 'block' : 'hidden'" :suggestions="suggestions" @complete="searchTask" @option-select="selectTask" fluid optionLabel="name" optionValue="value" />
-                    <label for="value">Nombre</label>
+                    <AutoComplete id="task-name" v-model="taskName" :overlayClass="showOverlay ? 'block' : 'hidden'" :suggestions="suggestions" @complete="searchTask" @option-select="selectTask" fluid optionLabel="name" optionValue="value" />
+                    <label for="task-name">Nombre</label>
                 </FloatLabel>
                 <FloatLabel variant="in" class="w-full">
-                    <Select v-model="taskCategory" :options="categories" optionLabel="name" optionValue="value" fluid />
-                    <label for="value">Categoría</label>
+                    <Select id="task-category" v-model="taskCategory" :options="categories" optionLabel="name" optionValue="value" fluid />
+                    <label for="task-category">Categoría</label>
                 </FloatLabel>
-                <SelectButton v-model="taskEffort" :options="effortOptions" optionLabel="name" optionValue="value" fluid />
-                <Button class="mb-24"  label="Guardar" severity="primary" type="submit" :disabled="v$.$invalid" />
+                <div>
+                    <label for="task-effort" class="sr-only">Esfuerzo</label>
+                    <SelectButton id="task-effort" v-model="taskEffort" :options="effortOptions" optionLabel="name" optionValue="value" fluid />
+                </div>
+                <Button class="mb-24" label="Guardar" severity="primary" type="submit" :disabled="v$.$invalid" />
             </form>
         </Drawer>
-    </div>
-
+    </aside>
 </template>
