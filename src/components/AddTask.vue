@@ -5,12 +5,12 @@ import { ref, computed } from 'vue';
 import AutoComplete from 'primevue/autocomplete';
 import Select from 'primevue/select';
 import SelectButton from 'primevue/selectbutton';
-import { useStorage } from '@vueuse/core';
 import FloatLabel from 'primevue/floatlabel';
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import { useSprintStore } from '@/store/useSprint';
 
-const tasks = useStorage<any[]>('tasks', [])
+const sprintStore = useSprintStore()
 
 const show = ref(false)
 const taskName = ref()
@@ -44,7 +44,7 @@ const effortOptions = [ {name: 'Baja', value: 1}, {name: 'Media', value: 2}, {na
 
 const addTask = () => {
    show.value = false
-   tasks.value.push({
+   sprintStore.addTask({
     name: taskName.value,
     category: taskCategory.value,
     effort: taskEffort.value,
@@ -53,16 +53,7 @@ const addTask = () => {
 }
 
 const searchTask = (event: any) => {
-    if(event.query.length > 2) {
-        suggestions.value = tasks.value.filter((task) => task.name.toLowerCase().includes(event.query.toLowerCase())).reduce((acc, task) => {
-            if(!acc.some((t) => t.name === task.name)) {
-                acc.push(task)
-            }
-            return acc
-        }, [])
-        return;
-    }
-    suggestions.value = []
+    suggestions.value = sprintStore.searchTasks(event.query)
 }
 
 const selectTask = (event: any) => {
