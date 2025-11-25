@@ -6,7 +6,7 @@ import { useSprintStore } from '@/store/useSprint';
 const sprintStore = useSprintStore()
 
 const addTask = (task: any) => {
-    sprintStore.addTask({...task, createdAt: new Date()})
+    sprintStore.addTask({...task})
 }
 </script>
 

@@ -47,8 +47,7 @@ const addTask = () => {
    sprintStore.addTask({
     name: taskName.value,
     category: taskCategory.value,
-    effort: taskEffort.value,
-    createdAt: new Date()
+    effort: taskEffort.value
    })
 }
 

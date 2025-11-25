@@ -52,7 +52,7 @@ export const useSprintStore = defineStore('sprint', () => {
   const addTask = (task: Omit<Task, 'createdAt'> | Task) => {
     tasks.value.push({
       ...task,
-      createdAt: ('createdAt' in task && task.createdAt) || new Date()
+      createdAt: new Date()
     })
   }
 
