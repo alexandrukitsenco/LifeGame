@@ -1,9 +1,9 @@
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 import SprintView from '@/pages/SprintView.vue'
 import MainView from '@/pages/MainView.vue'
 
 export default createRouter({
-    history: createMemoryHistory(),
+    history: createWebHistory(),
     routes: [
         {
             path: '/',
