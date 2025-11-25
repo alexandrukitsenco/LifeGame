@@ -10,8 +10,8 @@ const sprintStore = useSprintStore()
 <template>
   <section class="flex mt-10 gap-2">
     <FloatLabel variant="in" class="flex-1">
-        <InputNumber id="sprint-objective" v-model="sprintStore.objective" :min="1" fluid/>
-        <label for="sprint-objective">Objetivo de Sprint</label>
+        <InputNumber id="sprint-goal" v-model="sprintStore.goal" :min="1" fluid/>
+        <label for="sprint-goal">Objetivo de Sprint</label>
     </FloatLabel>
     <Button rounded icon="pi pi-trash" severity="danger" @click="sprintStore.deleteSprint" aria-label="Eliminar sprint" />
   </section>

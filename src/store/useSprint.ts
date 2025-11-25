@@ -10,7 +10,7 @@ export interface Task {
 }
 
 export const useSprintStore = defineStore('sprint', () => {
-  const objective = useStorage<number | null>('objective', null)
+  const goal = useStorage<number | null>('goal', null)
   const tasks = useStorage<Task[]>('tasks', [])
 
   const totalEffort = computed(() => {
@@ -18,8 +18,8 @@ export const useSprintStore = defineStore('sprint', () => {
   })
 
   const progress = computed(() => {
-    if (!objective.value || objective.value === 0) return 0
-    return (totalEffort.value / objective.value) * 100
+    if (!goal.value || goal.value === 0) return 0
+    return (totalEffort.value / goal.value) * 100
   })
 
   const taskLogsSorted = computed(() => {
@@ -61,7 +61,7 @@ export const useSprintStore = defineStore('sprint', () => {
   }
 
   const deleteSprint = () => {
-    objective.value = null
+    goal.value = null
     tasks.value = []
   }
 
@@ -79,7 +79,7 @@ export const useSprintStore = defineStore('sprint', () => {
   }
 
   return {
-    objective,
+    goal,
     tasks,
     totalEffort,
     progress,

@@ -9,8 +9,8 @@ const sprintStore = useSprintStore()
 </script>
 
 <template>
-  <section v-if="sprintStore.objective">
-    <h1>Objetivo de sprint: {{ sprintStore.objective }}</h1>
+  <section v-if="sprintStore.goal">
+    <h1>Objetivo de sprint: {{ sprintStore.goal }}</h1>
     <ProgressBar :value="sprintStore.progress" :showValue="false" />   
     <SuggestedTasks />
     <TaskLogs />
