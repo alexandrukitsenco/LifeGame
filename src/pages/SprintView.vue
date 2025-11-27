@@ -8,7 +8,7 @@ const sprintStore = useSprintStore()
 </script>
 
 <template>
-  <section class="flex mt-10 gap-2">
+  <section class="flex gap-2">
     <FloatLabel variant="in" class="flex-1">
         <InputNumber id="sprint-goal" v-model="sprintStore.goal" :min="1" fluid/>
         <label for="sprint-goal">Objetivo de Sprint</label>
